@@ -41,12 +41,15 @@ namespace PartyPlanner
             // fancyBox
             // 
             this.fancyBox.AutoSize = true;
+            this.fancyBox.Checked = true;
+            this.fancyBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fancyBox.Location = new System.Drawing.Point(29, 63);
             this.fancyBox.Name = "fancyBox";
             this.fancyBox.Size = new System.Drawing.Size(120, 19);
             this.fancyBox.TabIndex = 0;
             this.fancyBox.Text = "fancy decorations";
             this.fancyBox.UseVisualStyleBackColor = true;
+            this.fancyBox.CheckedChanged += new System.EventHandler(this.fancyBox_CheckedChanged);
             // 
             // healthyBox
             // 
@@ -57,6 +60,7 @@ namespace PartyPlanner
             this.healthyBox.TabIndex = 1;
             this.healthyBox.Text = "healthy option";
             this.healthyBox.UseVisualStyleBackColor = true;
+            this.healthyBox.CheckedChanged += new System.EventHandler(this.healthyBox_CheckedChanged);
             // 
             // label1
             // 
@@ -98,6 +102,7 @@ namespace PartyPlanner
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // costLabel
             // 

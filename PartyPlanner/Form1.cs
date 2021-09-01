@@ -22,14 +22,31 @@ namespace PartyPlanner
             dinnerParty.CalculateCostOfDecorations(true);
             DisplayDinnerPartyCost();
 
-
-
         }
 
         private void DisplayDinnerPartyCost()
         {
             decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
             costLabel.Text = Cost.ToString("c");
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            dinnerParty.NumberOfPeople = (int) numericUpDown1.Value;
+            DisplayDinnerPartyCost();
+        }
+
+        private void fancyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.CalculateCostOfDecorations(true);
+            DisplayDinnerPartyCost();
+
+        }
+
+        private void healthyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.SetHealthyOption(true);
+            DisplayDinnerPartyCost();
         }
     }
 }
