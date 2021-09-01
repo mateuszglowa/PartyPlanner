@@ -17,12 +17,10 @@ namespace PartyPlanner
         public Form1()
         {
             InitializeComponent();
-            dinnerParty = new DinnerParty() { NumberOfPeople = 5 };
+            dinnerParty = new DinnerParty() { NumberOfPeople = 1 };
             dinnerParty.SetHealthyOption(true);
-            dinnerParty.CalculateCostOfDecorations(true);
+            dinnerParty.CalculateCostOfDecorations(false);
             DisplayDinnerPartyCost();
-
-
 
         }
 
@@ -30,6 +28,25 @@ namespace PartyPlanner
         {
             decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
             costLabel.Text = Cost.ToString("c");
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            dinnerParty.NumberOfPeople = (int) numericUpDown1.Value;
+            DisplayDinnerPartyCost();
+        }
+
+        private void fancyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.CalculateCostOfDecorations(fancyBox.Checked);
+            DisplayDinnerPartyCost();
+
+        }
+
+        private void healthyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.SetHealthyOption(healthyBox.Checked);
+            DisplayDinnerPartyCost();
         }
     }
 }
